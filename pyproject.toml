@@ -1,0 +1,37 @@
+[project]
+name = "event-camera-viewer"
+version = "1.0.0"
+description = "A desktop event-camera viewer with live accumulation and Faery event recording."
+requires-python = ">=3.12"
+authors = [
+    { name = "Maximiliano Torres", email = "maximiliano.torres71@gmail.com" }
+]
+dependencies = [
+    "flet",
+    "numpy; sys_platform != 'emscripten'",
+    "opencv-python; sys_platform != 'emscripten'",
+    "neuromorphic-drivers; sys_platform != 'emscripten'",
+    "faery; sys_platform != 'emscripten'"
+]
+
+[dependency-groups]
+dev = [
+    "flet-cli",
+    "flet-desktop",
+    "flet-web"
+]
+
+[tool.flet.metadata]
+title = "Event Camera Viewer"
+
+[tool.flet]
+org = "dev.flet"
+company = "Maximiliano Torres"
+copyright = "Copyright (C) 2026 by Maximiliano Torres"
+
+[tool.flet.app]
+path = "src"
+
+# Browser preview: no native USB libraries or threaded acquisition.
+[tool.flet.web]
+dependencies = ["flet"]
